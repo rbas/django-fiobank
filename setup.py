@@ -25,11 +25,12 @@ base_path = os.path.dirname(__file__)
 version = django_fiobank.__versionstr__
 
 
-# release a version, publish to GitHub
+# release a version, publish to GitHub and PyPI
 if sys.argv[-1] == 'publish':
     command = lambda cmd: subprocess.check_call(shlex.split(cmd))
     command('git tag v' + version)
     command('git push --tags origin master:master')
+    command('python setup.py sdist upload')
     sys.exit()
 
 setup(
