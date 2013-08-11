@@ -21,17 +21,23 @@ if sys.argv[-1] == 'publish':
     command('python setup.py sdist upload')
     sys.exit()
 
+base_path = os.path.dirname(__file__)
+
+
+def read_file(filename):
+    return open(os.path.join(base_path, filename)).read()
+
 setup(
     name='django_fiobank',
     version=version,
     description=('Django-app for managing and processing Fio Bank '
                  'transaction'),
-    long_description=open('README.rst').read(),
+    long_description=read_file('README.rst'),
     author='Martin Voldrich',
     author_email='rbas.cz@gmail.com',
     url='https://github.com/rbas/django-fiobank',
     packages=find_packages(),
-    license=open('LICENSE').read(),
+    license=read_file('LICENSE'),
     install_requires=['fiobank>=0.0.3,<0.1', 'south'],
     classifiers=(
         'Development Status :: 4 - Beta',

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-VERSION = (0, 0, 2)
+VERSION = (0, 0, 3)
 
 __author__ = 'rbas'
 __version__ = VERSION
