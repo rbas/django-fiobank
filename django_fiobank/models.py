@@ -32,7 +32,7 @@ class Account(models.Model):
 
 
 class Transaction(models.Model):
-    account = models.ForeignKey(Account)
+    account = models.ForeignKey(Account, verbose_name=_('Account'))
     transaction_id = models.BigIntegerField(_('Transaction id'))
     date = models.DateField(_('Date'))
     amount = models.FloatField(_('Amount'))

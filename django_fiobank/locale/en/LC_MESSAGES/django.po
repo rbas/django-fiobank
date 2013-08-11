@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.0.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-11 16:04+0200\n"
+"PO-Revision-Date: 2013-08-11 14:56+0100\n"
+"Last-Translator: Martin Voldrich <rbas.cz@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: admin.py:9
+msgid "Transaction type"
+msgstr "Transaction type"
+
+#: admin.py:15
+msgid "All"
+msgstr "All"
+
+#: admin.py:16
+msgid "Income"
+msgstr "Income"
+
+#: admin.py:17
+msgid "Issue"
+msgstr "Issue"
+
+#: models.py:20
+msgid "Name"
+msgstr "Name"
+
+#: models.py:21 models.py:40
+msgid "Account number"
+msgstr "Account number"
+
+#: models.py:22 models.py:43
+msgid "Bank code"
+msgstr "Bank code"
+
+#: models.py:23
+msgid "Token"
+msgstr "Token"
+
+#: models.py:26 models.py:35
+msgid "Account"
+msgstr "Account"
+
+#: models.py:27
+msgid "Accounts"
+msgstr "Accounts"
+
+#: models.py:36
+msgid "Transaction id"
+msgstr "Transaction id"
+
+#: models.py:37
+msgid "Date"
+msgstr "Date"
+
+#: models.py:38
+msgid "Amount"
+msgstr "Amount"
+
+#: models.py:39
+msgid "Currency"
+msgstr "Currency"
+
+#: models.py:41
+msgid "Account name"
+msgstr "Account name"
+
+#: models.py:44
+msgid "Bic"
+msgstr "Bic"
+
+#: models.py:45
+msgid "Bank name"
+msgstr "Bank name"
+
+#: models.py:46
+msgid "Constant symbol"
+msgstr "Constant symbol"
+
+#: models.py:48
+msgid "Variable symbol"
+msgstr "Variable symbol"
+
+#: models.py:50
+msgid "Specific symbol"
+msgstr "Specific symbol"
+
+#: models.py:52
+msgid "User identification"
+msgstr "User identification"
+
+#: models.py:55
+msgid "Recipient message"
+msgstr "Recipient message"
+
+#: models.py:58
+msgid "Type"
+msgstr "Type"
+
+#: models.py:59
+msgid "Executor"
+msgstr "Executor"
+
+#: models.py:61
+msgid "Specification"
+msgstr "Specification"
+
+#: models.py:63
+msgid "Comment"
+msgstr "Comment"
+
+#: models.py:65
+msgid "Instruction id"
+msgstr "Instruction id"
+
+#: models.py:70
+msgid "Transaction"
+msgstr "Transaction"
+
+#: models.py:71
+msgid "Transactions"
+msgstr "Transactions"
