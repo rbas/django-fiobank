@@ -1,1 +1,3 @@
 include README.rst LICENSE
+include django_fiobank/locale/cs/LC_MESSAGES/django.po
+include django_fiobank/locale/en/LC_MESSAGES/django.po

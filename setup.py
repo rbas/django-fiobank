@@ -77,7 +77,7 @@ setup(
     license=read_file('LICENSE'),
     install_requires=['fiobank>=0.0.3,<0.1', 'south'],
     include_package_data=True,
-    package_data={'django_fiobank': ['locale/*/LC_MESSAGES/*.mo']},
+    package_data={'django_fiobank': ['locale/*/LC_MESSAGES/*.po']},
     cmdclass={'build': Build, 'install_lib': InstallLib,
               'compile_translations': CompileTranslations},
     classifiers=(
