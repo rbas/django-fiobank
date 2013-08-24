@@ -15,6 +15,16 @@ class AccountTest(TestCase):
 
         self.assertEqual(expected, account.account_number_full)
 
+    def test_account_number_full_with_empty_data(self):
+        account = Account()
+        self.assertEqual('', account.account_number_full)
+
+        account = Account(bank_code='021')
+        self.assertEqual('/021', account.account_number_full)
+
+        account = Account(account_number='43242-43')
+        self.assertEqual('43242-43/', account.account_number_full)
+
 
 class TransactionTest(TestCase):
 
@@ -59,3 +69,13 @@ class TransactionTest(TestCase):
         expected = '{0}/{1}'.format(account_number, bank_code)
 
         self.assertEqual(expected, transaction.account_full)
+
+    def test_account_number_full_with_empty_data(self):
+        transaction = Transaction()
+        self.assertEqual('', transaction.account_full)
+
+        transaction = Transaction(bank_code='021')
+        self.assertEqual('/021', transaction.account_full)
+
+        transaction = Transaction(account_number='43242-43')
+        self.assertEqual('43242-43/', transaction.account_full)

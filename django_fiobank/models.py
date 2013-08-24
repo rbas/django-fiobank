@@ -29,7 +29,10 @@ class Account(models.Model):
 
     @property
     def account_number_full(self):
-        return '{0}/{1}'.format(self.account_number, self.bank_code)
+        if self.account_number or self.bank_code:
+            return '{0}/{1}'.format(self.account_number, self.bank_code)
+        else:
+            return ''
 
     class Meta:
         verbose_name = _('Account')
@@ -95,4 +98,7 @@ class Transaction(models.Model):
 
     @property
     def account_full(self):
-        return '{0}/{1}'.format(self.account_number, self.bank_code)
+        if self.account_number or self.bank_code:
+            return '{0}/{1}'.format(self.account_number, self.bank_code)
+        else:
+            return ''
