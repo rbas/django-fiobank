@@ -4,13 +4,15 @@ import logging
 from django.db import IntegrityError
 from django.db import transaction as db_transaction
 from requests import HTTPError
-from fiobank import FioBank
+import fiobank
 from .models import Transaction, Account
 from .emails import token_expired
 
 logger = logging.getLogger(__name__)
 if not logger.handlers:
     logger.addHandler(logging.StreamHandler())
+
+token_expired_default_sender = token_expired
 
 
 @db_transaction.commit_manually
@@ -27,13 +29,13 @@ def download_and_save_bank_transactions():
                 last_transaction = Transaction.objects.get_last_transaction(
                     account.id)
 
-                client = FioBank(token=account.token)
+                client = fiobank.FioBank(token=account.token)
 
                 if last_transaction:
                     lookup_params = {'from_id': last_transaction.transaction_id}
                     transaction_list = client.last(**lookup_params)
                 else:
-                    from_date = '{0}-01-01'.format(datetime.date.today().year)
+                    from_date = '{0}-01-01'.format(today.year)
                     transaction_list = client.last(from_date=from_date)
 
             except HTTPError, e:
@@ -59,11 +61,15 @@ def download_and_save_bank_transactions():
         db_transaction.commit()
 
 
-def check_account_token_time_validity():
+def check_account_token_time_validity(
+        email_sender=token_expired_default_sender):
     """ Check token validity and send emails if expired.
+
+    :param email_sender: Function for send notification email. Default si
+    token_expired.
     """
     today = datetime.date.today()
     account_list = Account.objects.all()
     for account in account_list:
         if account.token_expire < today:
-            token_expired(account)
+            email_sender(account)

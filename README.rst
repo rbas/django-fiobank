@@ -4,6 +4,12 @@ Django fiobank
 
 Django-app for managing and processing Fio Bank transaction.
 
+Required
+--------
+    `fiobank  <https://github.com/honzajavorek/fiobank/>`_
+
+    For testing `mock  <http://www.voidspace.org.uk/python/mock/>`_
+
 Installation
 ------------
 
