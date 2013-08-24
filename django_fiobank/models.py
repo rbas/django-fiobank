@@ -22,6 +22,10 @@ class Account(models.Model):
     bank_code = models.CharField(_('Bank code'), max_length=10)
     token = models.CharField(_('Token'), max_length=64)
 
+    @property
+    def account_number_full(self):
+        return '{0}/{1}'.format(self.account_number, self.bank_code)
+
     class Meta:
         verbose_name = _('Account')
         verbose_name_plural = _('Accounts')
