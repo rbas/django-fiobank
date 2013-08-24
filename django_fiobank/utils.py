@@ -5,7 +5,8 @@ from django.db import IntegrityError
 from django.db import transaction as db_transaction
 from requests import HTTPError
 from fiobank import FioBank
-from models import Transaction, Account
+from .models import Transaction, Account
+from .emails import token_expired
 
 logger = logging.getLogger(__name__)
 if not logger.handlers:
@@ -13,10 +14,15 @@ if not logger.handlers:
 
 
 @db_transaction.commit_manually
-def run():
+def download_and_save_bank_transactions():
     try:
+        today = datetime.date.today()
         account_list = Account.objects.all()
         for account in account_list:
+
+            if account.token_expire < today:
+                continue
+
             try:
                 last_transaction = Transaction.objects.get_last_transaction(
                     account.id)
@@ -52,3 +58,13 @@ def run():
         raise e
     finally:
         db_transaction.commit()
+
+
+def check_account_token_time_validity():
+    """ Check token validity and send emails if expired.
+    """
+    today = datetime.date.today()
+    account_list = Account.objects.all()
+    for account in account_list:
+        if account.token_expire < today:
+            token_expired(account)

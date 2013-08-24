@@ -1,0 +1,11 @@
+{% extends "django_fiobank/emails/base.txt" %}
+{% load i18n %}
+
+{% block header %}{{ subject }}{% endblock %}
+
+{% block content %}
+    {% blocktrans %}
+        Bank account {{ account_name }} ({{ account_number_full }}) has
+        expired token validity for comunication with FIO bank.
+    {% endblocktrans %}
+{% endblock %}

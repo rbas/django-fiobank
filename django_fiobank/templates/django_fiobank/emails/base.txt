@@ -1,0 +1,13 @@
+
+{% block header %}{% endblock %}
+--------------------------------------------------------------------------------
+
+{% block content %}{% endblock %}
+
+---------------------------------------
+{% block footer_content %}
+
+    {% block footer_content_left_col %}{% if site_name and site_domain %}{{ site_name }} [{{ site_url }}]{% endif %}{% endblock %}
+
+    {% block footer_content_right_col %}{% endblock %}
+{% endblock %}

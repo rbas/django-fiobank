@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.0.4\n"
+"Project-Id-Version: 0.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-11 16:04+0200\n"
-"PO-Revision-Date: 2013-08-11 15:04+0100\n"
+"POT-Creation-Date: 2013-08-24 17:46+0200\n"
+"PO-Revision-Date: 2013-08-24 17:54+0100\n"
 "Last-Translator: Martin Voldrich <rbas.cz@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -16,7 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 1.5.4\n"
 
 #: admin.py:9
 msgid "Transaction type"
@@ -34,15 +33,19 @@ msgstr "Příchozí"
 msgid "Issue"
 msgstr "Odchozí"
 
+#: emails.py:17
+msgid "Token expired time validity"
+msgstr "Tokenu uplynula doba platnosti"
+
 #: models.py:20
 msgid "Name"
 msgstr "Název"
 
-#: models.py:21 models.py:40
+#: models.py:21 models.py:49
 msgid "Account number"
 msgstr "Číslo účtu"
 
-#: models.py:22 models.py:43
+#: models.py:22 models.py:52
 msgid "Bank code"
 msgstr "Kód banky"
 
@@ -50,86 +53,130 @@ msgstr "Kód banky"
 msgid "Token"
 msgstr "Token"
 
-#: models.py:26 models.py:35
+#: models.py:24
+msgid "Token expire"
+msgstr "Platnost tokenu do"
+
+#: models.py:25
+msgid "Date of expiration token."
+msgstr "Datum platnosti tokenu."
+
+#: models.py:26
+msgid "Manager email"
+msgstr "E-mail správce"
+
+#: models.py:27
+msgid "E-mail address bank account manager or owner."
+msgstr "E-mailová adresa na správce nebo vlastníka účtu."
+
+#: models.py:35 models.py:44
 msgid "Account"
 msgstr "Účet"
 
-#: models.py:27
+#: models.py:36
 msgid "Accounts"
 msgstr "Účty"
 
-#: models.py:36
+#: models.py:45
 msgid "Transaction id"
 msgstr "Id transakce"
 
-#: models.py:37
+#: models.py:46
 msgid "Date"
 msgstr "Datum"
 
-#: models.py:38
+#: models.py:47
 msgid "Amount"
 msgstr "Částka"
 
-#: models.py:39
+#: models.py:48
 msgid "Currency"
 msgstr "Měna"
 
-#: models.py:41
+#: models.py:50
 msgid "Account name"
 msgstr "Název účtu"
 
-#: models.py:44
+#: models.py:53
 msgid "Bic"
 msgstr "BIC"
 
-#: models.py:45
+#: models.py:54
 msgid "Bank name"
 msgstr "Název banky"
 
-#: models.py:46
+#: models.py:55
 msgid "Constant symbol"
 msgstr "Konstantní symbol"
 
-#: models.py:48
+#: models.py:57
 msgid "Variable symbol"
 msgstr "Variabilní symbol"
 
-#: models.py:50
+#: models.py:59
 msgid "Specific symbol"
 msgstr "Specifický symbol"
 
-#: models.py:52
+#: models.py:61
 msgid "User identification"
 msgstr "Uživatelská identifikace"
 
-#: models.py:55
+#: models.py:64
 msgid "Recipient message"
 msgstr "Zpráva pro příjemce"
 
-#: models.py:58
+#: models.py:67
 msgid "Type"
 msgstr "Typ"
 
-#: models.py:59
+#: models.py:68
 msgid "Executor"
 msgstr "Provedl"
 
-#: models.py:61
+#: models.py:70
 msgid "Specification"
 msgstr "Upřesnění"
 
-#: models.py:63
+#: models.py:72
 msgid "Comment"
 msgstr "Komentář"
 
-#: models.py:65
+#: models.py:74
 msgid "Instruction id"
 msgstr "ID pokynu"
 
-#: models.py:70
+#: models.py:79
 msgid "Transaction"
 msgstr "Pohyb"
 
-#: models.py:71
+#: models.py:80
 msgid "Transactions"
 msgstr "Pohyby"
+
+#: templates/django_fiobank/emails/token_expired.html:7
+#, python-format
+msgid ""
+"\n"
+"        Bank account <strong>%(account_name)s</strong>\n"
+"        (%(account_number_full)s) has expired token validity for\n"
+"        comunication with\n"
+"        FIO bank.\n"
+"    "
+msgstr ""
+"\n"
+"        Bankovní účet <strong>%(account_name)s</strong>\n"
+"        (%(account_number_full)s) má expirovaný token pro\n"
+"        komunikaci s\n"
+"        FIO bankou.\n"
+
+#: templates/django_fiobank/emails/token_expired.txt:7
+#, python-format
+msgid ""
+"\n"
+"        Bank account %(account_name)s (%(account_number_full)s) has\n"
+"        expired token validity for comunication with FIO bank.\n"
+"    "
+msgstr ""
+"\n"
+"        Bankovní účet %(account_name)s (%(account_number_full)s) má\n"
+"        expirovaný token pro komunikaci s FIO bankou.\n"

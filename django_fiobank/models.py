@@ -21,6 +21,11 @@ class Account(models.Model):
     account_number = models.CharField(_('Account number'), max_length=16)
     bank_code = models.CharField(_('Bank code'), max_length=10)
     token = models.CharField(_('Token'), max_length=64)
+    token_expire = models.DateField(_('Token expire'),
+                                    help_text=_('Date of expiration token.'))
+    manager_email = models.EmailField(_('Manager email'),
+                                      help_text=_('E-mail address bank account'
+                                                  ' manager or owner.'))
 
     @property
     def account_number_full(self):

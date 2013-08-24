@@ -5,17 +5,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.0.4\n"
+"Project-Id-Version: 0.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-11 16:04+0200\n"
-"PO-Revision-Date: 2013-08-11 14:56+0100\n"
+"POT-Creation-Date: 2013-08-24 17:47+0200\n"
+"PO-Revision-Date: 2013-08-24 17:46+0100\n"
 "Last-Translator: Martin Voldrich <rbas.cz@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
 
 #: admin.py:9
 msgid "Transaction type"
@@ -33,15 +32,19 @@ msgstr "Income"
 msgid "Issue"
 msgstr "Issue"
 
+#: emails.py:17
+msgid "Token expired time validity"
+msgstr "Token expired time validity"
+
 #: models.py:20
 msgid "Name"
 msgstr "Name"
 
-#: models.py:21 models.py:40
+#: models.py:21 models.py:49
 msgid "Account number"
 msgstr "Account number"
 
-#: models.py:22 models.py:43
+#: models.py:22 models.py:52
 msgid "Bank code"
 msgstr "Bank code"
 
@@ -49,86 +52,131 @@ msgstr "Bank code"
 msgid "Token"
 msgstr "Token"
 
-#: models.py:26 models.py:35
+#: models.py:24
+msgid "Token expire"
+msgstr "Token expire"
+
+#: models.py:25
+msgid "Date of expiration token."
+msgstr "Date of expiration token."
+
+#: models.py:26
+msgid "Manager email"
+msgstr "Manager email"
+
+#: models.py:27
+msgid "E-mail address bank account manager or owner."
+msgstr "E-mail address bank account manager or owner."
+
+#: models.py:35 models.py:44
 msgid "Account"
 msgstr "Account"
 
-#: models.py:27
+#: models.py:36
 msgid "Accounts"
 msgstr "Accounts"
 
-#: models.py:36
+#: models.py:45
 msgid "Transaction id"
 msgstr "Transaction id"
 
-#: models.py:37
+#: models.py:46
 msgid "Date"
 msgstr "Date"
 
-#: models.py:38
+#: models.py:47
 msgid "Amount"
 msgstr "Amount"
 
-#: models.py:39
+#: models.py:48
 msgid "Currency"
 msgstr "Currency"
 
-#: models.py:41
+#: models.py:50
 msgid "Account name"
 msgstr "Account name"
 
-#: models.py:44
+#: models.py:53
 msgid "Bic"
 msgstr "Bic"
 
-#: models.py:45
+#: models.py:54
 msgid "Bank name"
 msgstr "Bank name"
 
-#: models.py:46
+#: models.py:55
 msgid "Constant symbol"
 msgstr "Constant symbol"
 
-#: models.py:48
+#: models.py:57
 msgid "Variable symbol"
 msgstr "Variable symbol"
 
-#: models.py:50
+#: models.py:59
 msgid "Specific symbol"
 msgstr "Specific symbol"
 
-#: models.py:52
+#: models.py:61
 msgid "User identification"
 msgstr "User identification"
 
-#: models.py:55
+#: models.py:64
 msgid "Recipient message"
 msgstr "Recipient message"
 
-#: models.py:58
+#: models.py:67
 msgid "Type"
 msgstr "Type"
 
-#: models.py:59
+#: models.py:68
 msgid "Executor"
 msgstr "Executor"
 
-#: models.py:61
+#: models.py:70
 msgid "Specification"
 msgstr "Specification"
 
-#: models.py:63
+#: models.py:72
 msgid "Comment"
 msgstr "Comment"
 
-#: models.py:65
+#: models.py:74
 msgid "Instruction id"
 msgstr "Instruction id"
 
-#: models.py:70
+#: models.py:79
 msgid "Transaction"
 msgstr "Transaction"
 
-#: models.py:71
+#: models.py:80
 msgid "Transactions"
 msgstr "Transactions"
+
+#: templates/django_fiobank/emails/token_expired.html:7
+#, python-format
+msgid ""
+"\n"
+"        Bank account <strong>%(account_name)s</strong>\n"
+"        (%(account_number_full)s) has expired token validity for\n"
+"        comunication with\n"
+"        FIO bank.\n"
+"    "
+msgstr ""
+"\n"
+"        Bank account <strong>%(account_name)s</strong>\n"
+"        (%(account_number_full)s) has expired token validity for\n"
+"        comunication with\n"
+"        FIO bank.\n"
+
+#: templates/django_fiobank/emails/token_expired.txt:7
+#, python-format
+msgid ""
+"\n"
+"        Bank account %(account_name)s (%(account_number_full)s) has\n"
+"        expired token validity for comunication with FIO bank.\n"
+"    "
+msgstr ""
+"\n"
+"        Bank account %(account_name)s (%(account_number_full)s) has\n"
+"        expired token validity for comunication with FIO bank.\n"
+"    "
