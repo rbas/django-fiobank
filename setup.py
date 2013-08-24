@@ -75,7 +75,7 @@ setup(
     url='https://github.com/rbas/django-fiobank',
     packages=find_packages(),
     license=read_file('LICENSE'),
-    install_requires=['fiobank>=0.0.3,<0.1', 'south'],
+    install_requires=['fiobank>=0.0.4,<0.1', 'south'],
     include_package_data=True,
     package_data={'django_fiobank': ['locale/*/LC_MESSAGES/*']},
     cmdclass={'build': Build, 'install_lib': InstallLib,
