@@ -32,7 +32,14 @@ Downloading a save your bank transaction::
     ./manage.py fiodownload
 
 
-Use django.post_save signal on model Transaction for couple your invoice.
+Notification when the token expiration::
+
+    ./manage.py fiochecktokentimevalidity
+
+Set this command as daily cron job.
+
+
+Use **django.post_save signal** on model Transaction for couple your invoice.
 
 
 For further information read code.
