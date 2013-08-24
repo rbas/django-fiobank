@@ -42,7 +42,6 @@ def download_and_save_bank_transactions():
                 break
             else:
                 for data in transaction_list:
-                    print data
                     sid = db_transaction.savepoint()
                     try:
                         bank_trans = Transaction()
