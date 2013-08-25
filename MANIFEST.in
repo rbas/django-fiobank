@@ -1,2 +1,3 @@
 include README.rst LICENSE
 recursive-include django_fiobank/locale *
+recursive-include django_fiobank/templates *
