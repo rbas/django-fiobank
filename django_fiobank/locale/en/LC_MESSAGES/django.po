@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-24 17:47+0200\n"
+"POT-Creation-Date: 2013-08-25 13:17+0200\n"
 "PO-Revision-Date: 2013-08-24 17:46+0100\n"
 "Last-Translator: Martin Voldrich <rbas.cz@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,19 +16,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: admin.py:9
+#: admin.py:13
 msgid "Transaction type"
 msgstr "Transaction type"
 
-#: admin.py:15
+#: admin.py:19
 msgid "All"
 msgstr "All"
 
-#: admin.py:16
+#: admin.py:20 graph.py:66
 msgid "Income"
 msgstr "Income"
 
-#: admin.py:17
+#: admin.py:21 graph.py:67
 msgid "Issue"
 msgstr "Issue"
 
@@ -40,11 +40,11 @@ msgstr "Token expired time validity"
 msgid "Name"
 msgstr "Name"
 
-#: models.py:21 models.py:49
+#: models.py:21 models.py:52
 msgid "Account number"
 msgstr "Account number"
 
-#: models.py:22 models.py:52
+#: models.py:22 models.py:55
 msgid "Bank code"
 msgstr "Bank code"
 
@@ -68,115 +68,106 @@ msgstr "Manager email"
 msgid "E-mail address bank account manager or owner."
 msgstr "E-mail address bank account manager or owner."
 
-#: models.py:35 models.py:44
+#: models.py:38 models.py:47
 msgid "Account"
 msgstr "Account"
 
-#: models.py:36
+#: models.py:39
 msgid "Accounts"
 msgstr "Accounts"
 
-#: models.py:45
+#: models.py:48
 msgid "Transaction id"
 msgstr "Transaction id"
 
-#: models.py:46
+#: models.py:49
 msgid "Date"
 msgstr "Date"
 
-#: models.py:47
+#: models.py:50
 msgid "Amount"
 msgstr "Amount"
 
-#: models.py:48
+#: models.py:51
 msgid "Currency"
 msgstr "Currency"
 
-#: models.py:50
+#: models.py:53
 msgid "Account name"
 msgstr "Account name"
 
-#: models.py:53
+#: models.py:56
 msgid "Bic"
 msgstr "Bic"
 
-#: models.py:54
+#: models.py:57
 msgid "Bank name"
 msgstr "Bank name"
 
-#: models.py:55
+#: models.py:58
 msgid "Constant symbol"
 msgstr "Constant symbol"
 
-#: models.py:57
+#: models.py:60
 msgid "Variable symbol"
 msgstr "Variable symbol"
 
-#: models.py:59
+#: models.py:62
 msgid "Specific symbol"
 msgstr "Specific symbol"
 
-#: models.py:61
+#: models.py:64
 msgid "User identification"
 msgstr "User identification"
 
-#: models.py:64
+#: models.py:67
 msgid "Recipient message"
 msgstr "Recipient message"
 
-#: models.py:67
+#: models.py:70
 msgid "Type"
 msgstr "Type"
 
-#: models.py:68
+#: models.py:71
 msgid "Executor"
 msgstr "Executor"
 
-#: models.py:70
+#: models.py:73
 msgid "Specification"
 msgstr "Specification"
 
-#: models.py:72
+#: models.py:75
 msgid "Comment"
 msgstr "Comment"
 
-#: models.py:74
+#: models.py:77
 msgid "Instruction id"
 msgstr "Instruction id"
 
-#: models.py:79
+#: models.py:82
 msgid "Transaction"
 msgstr "Transaction"
 
-#: models.py:80
+#: models.py:83
 msgid "Transactions"
 msgstr "Transactions"
 
 #: templates/django_fiobank/emails/token_expired.html:7
-#, python-format
 msgid ""
-"\n"
-"        Bank account <strong>%(account_name)s</strong>\n"
+"Bank account <strong>%(account_name)s</strong>\n"
 "        (%(account_number_full)s) has expired token validity for\n"
 "        comunication with\n"
-"        FIO bank.\n"
-"    "
+"        FIO bank."
 msgstr ""
-"\n"
-"        Bank account <strong>%(account_name)s</strong>\n"
+"Bank account <strong>%(account_name)s</strong>\n"
 "        (%(account_number_full)s) has expired token validity for\n"
 "        comunication with\n"
-"        FIO bank.\n"
+"        FIO bank."
 
 #: templates/django_fiobank/emails/token_expired.txt:7
-#, python-format
 msgid ""
-"\n"
-"        Bank account %(account_name)s (%(account_number_full)s) has\n"
-"        expired token validity for comunication with FIO bank.\n"
-"    "
+"Bank account %(account_name)s (%(account_number_full)s) has\n"
+"        expired token validity for comunication with FIO bank."
 msgstr ""
-"\n"
-"        Bank account %(account_name)s (%(account_number_full)s) has\n"
-"        expired token validity for comunication with FIO bank.\n"
-"    "
+"Bank account %(account_name)s (%(account_number_full)s) has\n"
+"        expired token validity for comunication with FIO bank."

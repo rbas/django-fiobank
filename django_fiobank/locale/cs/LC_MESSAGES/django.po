@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.0.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-24 17:46+0200\n"
+"POT-Creation-Date: 2013-08-25 13:17+0200\n"
 "PO-Revision-Date: 2013-08-24 17:54+0100\n"
 "Last-Translator: Martin Voldrich <rbas.cz@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: admin.py:9
+#: admin.py:13
 msgid "Transaction type"
 msgstr "Typ pohybu"
 
-#: admin.py:15
+#: admin.py:19
 msgid "All"
 msgstr "Vše"
 
-#: admin.py:16
+#: admin.py:20 graph.py:66
 msgid "Income"
 msgstr "Příchozí"
 
-#: admin.py:17
+#: admin.py:21 graph.py:67
 msgid "Issue"
 msgstr "Odchozí"
 
@@ -41,11 +41,11 @@ msgstr "Tokenu uplynula doba platnosti"
 msgid "Name"
 msgstr "Název"
 
-#: models.py:21 models.py:49
+#: models.py:21 models.py:52
 msgid "Account number"
 msgstr "Číslo účtu"
 
-#: models.py:22 models.py:52
+#: models.py:22 models.py:55
 msgid "Bank code"
 msgstr "Kód banky"
 
@@ -69,114 +69,106 @@ msgstr "E-mail správce"
 msgid "E-mail address bank account manager or owner."
 msgstr "E-mailová adresa na správce nebo vlastníka účtu."
 
-#: models.py:35 models.py:44
+#: models.py:38 models.py:47
 msgid "Account"
 msgstr "Účet"
 
-#: models.py:36
+#: models.py:39
 msgid "Accounts"
 msgstr "Účty"
 
-#: models.py:45
+#: models.py:48
 msgid "Transaction id"
 msgstr "Id transakce"
 
-#: models.py:46
+#: models.py:49
 msgid "Date"
 msgstr "Datum"
 
-#: models.py:47
+#: models.py:50
 msgid "Amount"
 msgstr "Částka"
 
-#: models.py:48
+#: models.py:51
 msgid "Currency"
 msgstr "Měna"
 
-#: models.py:50
+#: models.py:53
 msgid "Account name"
 msgstr "Název účtu"
 
-#: models.py:53
+#: models.py:56
 msgid "Bic"
 msgstr "BIC"
 
-#: models.py:54
+#: models.py:57
 msgid "Bank name"
 msgstr "Název banky"
 
-#: models.py:55
+#: models.py:58
 msgid "Constant symbol"
 msgstr "Konstantní symbol"
 
-#: models.py:57
+#: models.py:60
 msgid "Variable symbol"
 msgstr "Variabilní symbol"
 
-#: models.py:59
+#: models.py:62
 msgid "Specific symbol"
 msgstr "Specifický symbol"
 
-#: models.py:61
+#: models.py:64
 msgid "User identification"
 msgstr "Uživatelská identifikace"
 
-#: models.py:64
+#: models.py:67
 msgid "Recipient message"
 msgstr "Zpráva pro příjemce"
 
-#: models.py:67
+#: models.py:70
 msgid "Type"
 msgstr "Typ"
 
-#: models.py:68
+#: models.py:71
 msgid "Executor"
 msgstr "Provedl"
 
-#: models.py:70
+#: models.py:73
 msgid "Specification"
 msgstr "Upřesnění"
 
-#: models.py:72
+#: models.py:75
 msgid "Comment"
 msgstr "Komentář"
 
-#: models.py:74
+#: models.py:77
 msgid "Instruction id"
 msgstr "ID pokynu"
 
-#: models.py:79
+#: models.py:82
 msgid "Transaction"
 msgstr "Pohyb"
 
-#: models.py:80
+#: models.py:83
 msgid "Transactions"
 msgstr "Pohyby"
 
 #: templates/django_fiobank/emails/token_expired.html:7
-#, python-format
 msgid ""
-"\n"
-"        Bank account <strong>%(account_name)s</strong>\n"
+"Bank account <strong>%(account_name)s</strong>\n"
 "        (%(account_number_full)s) has expired token validity for\n"
 "        comunication with\n"
-"        FIO bank.\n"
-"    "
+"        FIO bank."
 msgstr ""
-"\n"
-"        Bankovní účet <strong>%(account_name)s</strong>\n"
+"Bankovní účet <strong>%(account_name)s</strong>\n"
 "        (%(account_number_full)s) má expirovaný token pro\n"
 "        komunikaci s\n"
-"        FIO bankou.\n"
+"        FIO bankou."
 
 #: templates/django_fiobank/emails/token_expired.txt:7
-#, python-format
 msgid ""
-"\n"
-"        Bank account %(account_name)s (%(account_number_full)s) has\n"
-"        expired token validity for comunication with FIO bank.\n"
-"    "
+"Bank account %(account_name)s (%(account_number_full)s) has\n"
+"        expired token validity for comunication with FIO bank."
 msgstr ""
-"\n"
-"        Bankovní účet %(account_name)s (%(account_number_full)s) má\n"
-"        expirovaný token pro komunikaci s FIO bankou.\n"
+"Bankovní účet %(account_name)s (%(account_number_full)s) má\n"
+"        expirovaný token pro komunikaci s FIO bankou."
