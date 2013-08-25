@@ -5,6 +5,10 @@ from django.contrib.admin import SimpleListFilter
 from .models import Account, Transaction
 
 
+class AccountAdmin(admin.ModelAdmin):
+    change_form_template = 'django_fiobank/admin/account/change.html'
+
+
 class AmountFilter(SimpleListFilter):
     title = _('Transaction type')
 
@@ -47,5 +51,5 @@ class TransactionAdmin(admin.ModelAdmin):
     date_hierarchy = 'date'
 
 
-admin.site.register(Account)
+admin.site.register(Account, AccountAdmin)
 admin.site.register(Transaction, TransactionAdmin)

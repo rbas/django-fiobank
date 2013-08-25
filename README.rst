@@ -4,11 +4,15 @@ Django fiobank
 
 Django-app for managing and processing Fio Bank transaction.
 
+.. image::  https://github.com/rbas/django-fiobank/blob/master/admin.png
+
 Required
 --------
-    `fiobank  <https://github.com/honzajavorek/fiobank/>`_
+* `fiobank  <https://github.com/honzajavorek/fiobank/>`_
+* `pygal  <http://pygal.org/>`_ (required system packages libxml2-dev
+  libxslt1-dev)
 
-    For testing `mock  <http://www.voidspace.org.uk/python/mock/>`_
+* For testing `mock  <http://www.voidspace.org.uk/python/mock/>`_
 
 Installation
 ------------
@@ -45,7 +49,8 @@ Notification when the token expiration::
 Set this command as daily cron job.
 
 
-Use **django.post_save signal** on model Transaction for couple your invoice.
+Use **django.post_save** signal on model **Transaction** for couple your
+invoice.
 
 
 For further information read code.
