@@ -4,7 +4,7 @@ Django fiobank
 
 Django-app for managing and processing Fio Bank transaction.
 
-.. image::  https://github.com/rbas/django-fiobank/blob/master/admin.png
+.. image:: https://dl.dropboxusercontent.com/u/4077968/admin.png
 
 Required
 --------
