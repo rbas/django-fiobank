@@ -49,7 +49,7 @@ class Transaction(models.Model):
     date = models.DateField(_('Date'))
     amount = models.FloatField(_('Amount'))
     currency = models.CharField(_('Currency'), max_length=3)
-    account_number = models.CharField(_('Account number'), max_length=16)
+    account_number = models.CharField(_('Account number'), max_length=17)
     account_name = models.CharField(_('Account name'), max_length=255,
                                     blank=True, null=True)
     bank_code = models.CharField(_('Bank code'), max_length=10)
