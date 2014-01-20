@@ -68,8 +68,8 @@ def check_account_token_time_validity(
     :param email_sender: Function for send notification email. Default si
     token_expired.
     """
-    today = datetime.date.today()
+    minimal_validation_date = datetime.date.today() + datetime.timedelta(days=7)
     account_list = Account.objects.all()
     for account in account_list:
-        if account.token_expire < today:
+        if account.token_expire >= minimal_validation_date:
             email_sender(account)
