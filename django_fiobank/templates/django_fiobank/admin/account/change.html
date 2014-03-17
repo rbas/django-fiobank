@@ -1,0 +1,16 @@
+{% extends "admin/change_form.html" %}
+
+{% load i18n fiobank_tags %}
+
+
+{% block content %}
+    <div class="tab-content">
+        <div style="width: 40%;float:left">
+            {{ block.super }}
+        </div>
+        <div style="width: 55%;float: right">
+            {% render_account_graph %}
+        </div>
+    </div>
+
+{% endblock %}
