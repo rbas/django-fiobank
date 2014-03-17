@@ -14,6 +14,8 @@ from setuptools.command.install_lib import install_lib as _install_lib
 from distutils.command.build import build as _build
 from distutils.cmd import Command
 
+from django.core.management.commands.compilemessages import compile_messages
+
 version = django_fiobank.__versionstr__
 
 
@@ -44,14 +46,12 @@ class CompileTranslations(Command):
         pass
 
     def run(self):
-        import os
-        import sys
-        from django.core.management.commands.compilemessages import \
-            compile_messages
-
         curdir = os.getcwd()
         os.chdir(os.path.realpath(os.path.dirname(django_fiobank.__file__)))
-        compile_messages(stderr=sys.stderr)
+        try:
+            compile_messages(stderr=sys.stderr)
+        except TypeError:
+            compile_messages(sys.stderr)
         os.chdir(curdir)
 
 
@@ -75,7 +75,9 @@ setup(
     url='https://github.com/rbas/django-fiobank',
     packages=find_packages(),
     license=read_file('LICENSE'),
-    install_requires=['fiobank>=0.0.4,<0.1', 'south', 'pygal>=1.1.0,<2'],
+    install_requires=[
+        'Django>=1.5', 'fiobank>=0.0.4,<0.1', 'south', 'pygal>=1.1.0,<2'
+    ],
     include_package_data=True,
     package_data={'django_fiobank': ['locale/*/LC_MESSAGES/*']},
     cmdclass={'build': Build, 'install_lib': InstallLib,
