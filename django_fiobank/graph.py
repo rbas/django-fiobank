@@ -6,6 +6,8 @@ from django.db.models import Count, Sum
 from django.utils.translation import ugettext as _
 from django_fiobank.models import Transaction
 
+import locale
+locale.setlocale(locale.LC_ALL, 'cs_CZ.UTF-8')
 
 def generate_income_issue_graph(account_id, year):
     date = datetime.datetime(year, 1, 1)
@@ -26,7 +28,7 @@ def generate_income_issue_graph(account_id, year):
                                           date__gte=date, account_id=account_id)
 
     def month_to_str(month):
-        return datetime.datetime(year, month, 1).strftime('%B')
+        return datetime.datetime(year, month, 1).strftime('%B').decode('utf8')
 
     income_custom_list = {int(trans['month']): trans for trans in
                           income__transaction_list}
