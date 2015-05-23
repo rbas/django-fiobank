@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 import sys
 import shlex
@@ -82,14 +81,15 @@ setup(
     package_data={'django_fiobank': ['locale/*/LC_MESSAGES/*']},
     cmdclass={'build': Build, 'install_lib': InstallLib,
               'compile_translations': CompileTranslations},
-    classifiers=(
+    classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: ISC License (ISCL)',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3 :: Only',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        "Operating System :: OS Independent",
         'Topic :: Software Development :: Libraries :: Python Modules',
-        'Topic :: Internet',
-    )
+        'Topic :: Internet'
+    ]
 )
