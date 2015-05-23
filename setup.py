@@ -12,9 +12,8 @@ except ImportError:
 
 from setuptools.command.install_lib import install_lib as _install_lib
 from distutils.command.build import build as _build
-from distutils.cmd import Command
 
-from django.core.management.commands.compilemessages import compile_messages
+from django.core.management.commands.compilemessages import Command
 
 version = django_fiobank.__versionstr__
 
@@ -49,9 +48,9 @@ class CompileTranslations(Command):
         curdir = os.getcwd()
         os.chdir(os.path.realpath(os.path.dirname(django_fiobank.__file__)))
         try:
-            compile_messages(stderr=sys.stderr)
+            Command.execute(stderr=sys.stderr)
         except TypeError:
-            compile_messages(sys.stderr)
+            pass
         os.chdir(curdir)
 
 
@@ -76,7 +75,7 @@ setup(
     packages=find_packages(),
     license=read_file('LICENSE'),
     install_requires=[
-        'Django>=1.4', 'fiobank>=0.0.4,<0.1', 'south', 'pygal>=1.1.0,<2'
+        'Django>=1.7', 'fiobank>=0.0.5,<0.1', 'south', 'pygal>=1.1.0,<2'
     ],
     include_package_data=True,
     package_data={'django_fiobank': ['locale/*/LC_MESSAGES/*']},

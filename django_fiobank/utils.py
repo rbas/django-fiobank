@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime
 import logging
-from django.db import IntegrityError
-from django.db import transaction as db_transaction
 from requests import HTTPError
 import fiobank
 from .models import Transaction, Account
@@ -15,50 +13,38 @@ if not logger.handlers:
 token_expired_default_sender = token_expired
 
 
-@db_transaction.commit_manually
 def download_and_save_bank_transactions():
-    try:
-        today = datetime.date.today()
-        account_list = Account.objects.all()
-        for account in account_list:
 
-            if account.token_expire < today:
-                continue
+    today = datetime.date.today()
+    account_list = Account.objects.all()
+    for account in account_list:
 
-            try:
-                last_transaction = Transaction.objects.get_last_transaction(
-                    account.id)
+        if account.token_expire < today:
+            continue
 
-                client = fiobank.FioBank(token=account.token)
+        try:
+            last_transaction = Transaction.objects.get_last_transaction(
+                account.id)
 
-                if last_transaction:
-                    lookup_params = {'from_id': last_transaction.transaction_id}
-                    transaction_list = client.last(**lookup_params)
-                else:
-                    from_date = '{0}-01-01'.format(today.year)
-                    transaction_list = client.last(from_date=from_date)
+            client = fiobank.FioBank(token=account.token)
 
-            except HTTPError, e:
-                logger.error('Error in process account {0}'.format(account))
-                logger.exception(e)
-                break
+            if last_transaction:
+                lookup_params = {'from_id': last_transaction.transaction_id}
+                transaction_list = client.last(**lookup_params)
             else:
-                for data in transaction_list:
-                    sid = db_transaction.savepoint()
-                    try:
-                        bank_trans = Transaction()
-                        bank_trans.account = account
-                        bank_trans.assign(data)
-                        bank_trans.save()
-                    except IntegrityError:
-                        db_transaction.savepoint_rollback(sid)  # record exist
-                    else:
-                        db_transaction.savepoint_commit(sid)
-    except Exception, e:
-        db_transaction.rollback()
-        raise e
-    finally:
-        db_transaction.commit()
+                from_date = '{0}-01-01'.format(today.year)
+                transaction_list = client.last(from_date=from_date)
+
+        except HTTPError as e:
+            logger.error('Error in process account {0}'.format(account))
+            logger.exception(e)
+            break
+        else:
+            for data in transaction_list:
+                bank_trans = Transaction()
+                bank_trans.account = account
+                bank_trans.assign(data)
+                bank_trans.save()
 
 
 def check_account_token_time_validity(

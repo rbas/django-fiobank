@@ -8,7 +8,7 @@ __all__ = ('TransactionManager', 'Account', 'Transaction')
 class TransactionManager(models.Manager):
 
     def get_last_transaction(self, account_id):
-        data = self.get_query_set().filter(account_id=account_id).order_by(
+        data = self.get_queryset().filter(account_id=account_id).order_by(
             '-transaction_id')[:1]
         if data:
             return data[0]
@@ -39,7 +39,7 @@ class Account(models.Model):
         verbose_name_plural = _('Accounts')
         unique_together = ('account_number', 'bank_code')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -49,7 +49,7 @@ class Transaction(models.Model):
     date = models.DateField(_('Date'))
     amount = models.FloatField(_('Amount'))
     currency = models.CharField(_('Currency'), max_length=3)
-    account_number = models.CharField(_('Account number'), max_length=17)
+    account_number = models.CharField(_('Account number'), max_length=30)
     account_name = models.CharField(_('Account name'), max_length=255,
                                     blank=True, null=True)
     bank_code = models.CharField(_('Bank code'), max_length=10)
@@ -83,8 +83,8 @@ class Transaction(models.Model):
         verbose_name_plural = _('Transactions')
         unique_together = ('instruction_id',)
 
-    def __unicode__(self):
-        return u'{0}'.format(self.transaction_id)
+    def __str__(self):
+        return '{0}'.format(self.transaction_id)
 
     def assign(self, transaction_data):
         ''' Assign data from dict
