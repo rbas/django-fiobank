@@ -28,7 +28,7 @@ def generate_income_issue_graph(account_id, year):
                                           date__gte=date, account_id=account_id)
 
     def month_to_str(month):
-        return datetime.datetime(year, month, 1).strftime('%B').decode('utf8')
+        return datetime.datetime(year, month, 1).strftime('%B')
 
     income_custom_list = {int(trans['month']): trans for trans in
                           income__transaction_list}
