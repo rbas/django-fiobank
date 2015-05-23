@@ -9,11 +9,7 @@ try:
 except ImportError:
     from distutils.core import setup, find_packages  # NOQA
 
-from setuptools.command.install_lib import install_lib as _install_lib
-from distutils.command.build import build as _build
-from distutils.cmd import Command
-
-from django.core.management.commands.compilemessages import Command
+from setuptools.command.install import install
 
 version = django_fiobank.__versionstr__
 
@@ -33,35 +29,20 @@ def read_file(filename):
     return open(os.path.join(base_path, filename)).read()
 
 
-class CompileTranslations(Command):
-    description = 'compile message catalogs to MO files via django ' \
-                  'compilemessages'
-    user_options = []
-
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
+class CompileTranslations(install):
+    """Customized setuptools install command - prints a friendly greeting."""
     def run(self):
         curdir = os.getcwd()
         os.chdir(os.path.realpath(os.path.dirname(django_fiobank.__file__)))
         try:
-            Command.execute(stderr=sys.stderr)
-        except TypeError:
+            command = lambda cmd: subprocess.check_call(shlex.split(cmd))
+            command('django-admin.py compilemessages')
+
+        except TypeError as e:
+            raise e
             pass
         os.chdir(curdir)
-
-
-class Build(_build):
-    sub_commands = [('compile_translations', None)] + _build.sub_commands
-
-
-class InstallLib(_install_lib):
-    def run(self):
-        self.run_command('compile_translations')
-        _install_lib.run(self)
+        install.run(self)
 
 setup(
     name='django_fiobank',
@@ -79,8 +60,7 @@ setup(
     ],
     include_package_data=True,
     package_data={'django_fiobank': ['locale/*/LC_MESSAGES/*']},
-    cmdclass={'build': Build, 'install_lib': InstallLib,
-              'compile_translations': CompileTranslations},
+    cmdclass={'install': CompileTranslations},
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
