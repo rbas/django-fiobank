@@ -12,6 +12,7 @@ except ImportError:
 
 from setuptools.command.install_lib import install_lib as _install_lib
 from distutils.command.build import build as _build
+from distutils.cmd import Command
 
 from django.core.management.commands.compilemessages import Command
 
