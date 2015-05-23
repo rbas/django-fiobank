@@ -75,7 +75,7 @@ setup(
     packages=find_packages(),
     license=read_file('LICENSE'),
     install_requires=[
-        'Django>=1.7', 'fiobank>=0.0.5,<0.1', 'south', 'pygal>=1.1.0,<2'
+        'Django>=1.7', 'fiobank>=0.0.5,<0.1', 'pygal>=1.1.0,<2'
     ],
     include_package_data=True,
     package_data={'django_fiobank': ['locale/*/LC_MESSAGES/*']},
