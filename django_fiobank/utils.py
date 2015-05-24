@@ -41,10 +41,13 @@ def download_and_save_bank_transactions():
             break
         else:
             for data in transaction_list:
-                bank_trans = Transaction()
-                bank_trans.account = account
-                bank_trans.assign(data)
-                bank_trans.save()
+                try:
+                    bank_trans = Transaction()
+                    bank_trans.account = account
+                    bank_trans.assign(data)
+                    bank_trans.save()
+                except Exception:
+                    pass
 
 
 def check_account_token_time_validity(
